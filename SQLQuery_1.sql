@@ -1,0 +1,12 @@
+SELECT COUNT(*) AS OrdiniTotali FROM [dbo].[Orders];
+SELECT COUNT(*) AS ClientiTotali FROM [dbo].[Customers];
+SELECT COUNT(*) AS ClientiTotaliLondinesi FROM [dbo].[Customers] WHERE City = 'London';
+SELECT AVG(Freight) AS CostoTrasportoMedia FROM [dbo].[Orders];
+SELECT AVG(Freight) AS MediaCostoTrasportBOTTM FROM [dbo].[Orders] WHERE CustomerID = 'BOTTM';
+SELECT CustomerID, SUM(Freight) AS TotaleSpeseTrasporto FROM [dbo].[Orders] GROUP By CustomerID;
+SELECT City, COUNT(*) AS NumeroClientiPerCittà FROM [dbo].[Customers] GROUP BY City; 
+SELECT OrderID, SUM(UnitPrice * Quantity) AS ValoreTotalePerID FROM [dbo].[Order Details] WHERE OrderID = 10248 GROUP BY OrderID;
+SELECT COUNT(*) Orders, SUM(UnitPrice * Quantity) As ValoreTotalePerOrdineID FROM [dbo].[Order Details] GROUP BY OrderID;
+SELECT CategoryID, COUNT(*) AS NumeroProdotti FROM [dbo].[Products] GROUP BY CategoryID;
+SELECT ShipCountry, COUNT(*) AS NumeroOrdiniPerPaese FROM [dbo].[Orders] GROUP BY ShipCountry;
+SELECT ShipCountry, AVG(Freight) AS MediaCostoTrasportoPerPaese FROM [dbo].[Orders] GROUP BY ShipCountry;
